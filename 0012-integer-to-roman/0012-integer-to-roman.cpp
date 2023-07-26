@@ -1,15 +1,75 @@
 class Solution {
 public:
     string intToRoman(int n) {
-     
-        string romanValue;
-        string ones[]={"","I","II","III","IV","V","VI","VII","VIII","IX"};
-        string tens[]={"","X","XX","XXX","XL","L","LX","LXX","LXXX","XC"};
-        string huns[]={"","C","CC","CCC","CD","D","DC","DCC","DCCC","CM"};
-        string thos[]={"","M","MM","MMM"};
-        
-        romanValue=thos[n/1000]+huns[(n%1000)/100]+tens[(n%100)/10]+ones[(n%10)];
-        return romanValue;
-        
+        string ans;
+        while(n)
+        {
+        if(n>=1000)
+        {
+            ans+="M";
+            n-=1000;
+        }
+        else if(n>=900)
+        {
+            ans+="CM";
+            n-=900;
+        }
+        else if(n>=500)
+        {
+            ans+="D";
+            n-=500;
+        }
+       else if(n>=400)
+        {
+            ans+="CD";
+            n-=400;
+        }
+        else if(n>=100)
+        {
+            ans+="C";
+            n-=100;
+        }
+        else if(n>=90)
+        {
+            ans+="XC";
+            n-=90;
+        }
+        else if(n>=50)
+        {
+            ans+="L";
+            n-=50;
+        }
+        else if(n>=40)
+        {
+            ans+="XL";
+            n-=40;
+        }
+        else if(n>=10)
+        {
+            ans+="X";
+            n-=10;
+        }
+        else if(n>=9)
+        {
+            ans+="IX";
+            n-=9;
+        }
+        else if(n>=5)
+        {
+            ans+="V";
+            n-=5;
+        }
+        else if(n>=4)
+        {
+            ans+="IV";
+            n-=4;
+        }
+        else
+        {
+            ans+="I";
+            n-=1;
+        }
+    }
+        return ans;
     }
 };
