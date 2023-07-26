@@ -3,17 +3,12 @@ public:
     string intToRoman(int n) {
      
         string romanValue;
-        vector<pair<int,string>>val={{1000,"M"},{900,"CM"},{500,"D"},{400,"CD"},{100,"C"},{90,"XC"},{50,"L"},{40,"XL"},{10,"X"},{9,"IX"},{5,"V"},{4,"IV"},{1,"I"}};
+        string ones[]={"","I","II","III","IV","V","VI","VII","VIII","IX"};
+        string tens[]={"","X","XX","XXX","XL","L","LX","LXX","LXXX","XC"};
+        string huns[]={"","C","CC","CCC","CD","D","DC","DCC","DCCC","CM"};
+        string thos[]={"","M","MM","MMM"};
         
-        for(int i=0;i<val.size();i++)
-        {
-            while(n>=val[i].first)
-            {
-                romanValue+=val[i].second;
-                n-=val[i].first;
-            }
-        }
-        
+        romanValue=thos[n/1000]+huns[(n%1000)/100]+tens[(n%100)/10]+ones[(n%10)];
         return romanValue;
         
     }
