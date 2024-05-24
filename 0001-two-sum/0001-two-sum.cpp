@@ -1,16 +1,20 @@
 class Solution {
 public:
     vector<int> twoSum(vector<int>& n, int t) {
-        unordered_map<int,int>m;
+        map<int,int>s;
+        vector<int>v;
         for(int i=0;i<n.size();i++)
         {
-            if(m.find(t-n[i])==m.end())
+            if(!s.empty() && s.find(t-n[i])!=s.end())
             {
-                m[n[i]]=i;
+                v.push_back(s[t-n[i]]);
+                v.push_back(i);
             }
             else
-            return {i,m[t-n[i]]};
+            {
+                s[n[i]]=i;
+            }
         }
-        return {};
+        return v;
     }
 };
