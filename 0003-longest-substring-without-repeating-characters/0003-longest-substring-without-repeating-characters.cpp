@@ -4,7 +4,7 @@ public:
     
     int lengthOfLongestSubstring(string s) {
         int i=0,j=0,len=s.size(),maxLen=0;
-        set<char>m;
+        unordered_set<char>m;
         for(i=0;i<len;i++)
         {
             if(m.empty() || m.find(s[i])==m.end())
@@ -21,7 +21,7 @@ public:
                         m.erase(s[j]);
                     j++;
                 }
-                    m.erase(s[j]);
+                m.erase(s[j]);
                 j++;
                 m.insert(s[i]);
                 maxLen=max(int(m.size()),maxLen);
