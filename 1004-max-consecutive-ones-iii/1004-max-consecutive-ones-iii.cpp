@@ -7,13 +7,11 @@ public:
         {
             if(nums[i]==0)
                 c++;
-            while(c>k)
+            if(c>k)
             {
-                   if(nums[j]==0)
-                   {
-                       c--;
-                   }
-                  j++;
+                if(nums[j]==0)
+                    c--;
+                j++;
             }
             if(c<=k)
             maxLen=max(i-j+1,maxLen);
